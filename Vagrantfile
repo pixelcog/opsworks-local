@@ -18,9 +18,6 @@ Vagrant.configure("2") do |config|
   app_type = "php"
   app_root = ""
 
-  # Share our app's folder with the guest machine
-  config.vm.synced_folder "dev/#{app_name}", "/home/vagrant/app/#{app_name}"
-
   # Forward port 80 so we can see our work
   config.vm.network "forwarded_port", guest: 80, host: 8080
 
@@ -42,7 +39,7 @@ Vagrant.configure("2") do |config|
           :document_root => app_root,
           :scm => {
             :scm_type => "git",
-            :repository => "/home/vagrant/app/#{app_name}"
+            :repository => "/vagrant/dev/#{app_name}"
           },
           :domains => [app_name],
           :memcached => {},
