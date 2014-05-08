@@ -18,9 +18,6 @@ Vagrant.configure("2") do |config|
   app_type = "php"
   app_root = "web"
 
-  # Share our app's folder with the guest machine
-  config.vm.synced_folder "dev/#{app_name}", "/home/vagrant/app/#{app_name}"
-
   # Ensure our apt cache is fresh
   config.vm.provision "shell", inline: "apt-get update > /dev/null"
 
@@ -37,7 +34,7 @@ Vagrant.configure("2") do |config|
           :document_root => app_root,
           :scm => {
             :scm_type => "git",
-            :repository => "/home/vagrant/app/#{app_name}"
+            :repository => "/vagrant/dev/#{app_name}"
           },
           :domains => [app_name],
           :memcached => {},
