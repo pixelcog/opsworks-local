@@ -1,7 +1,3 @@
-[submodule "ops/opsworks-cookbooks"]
-	path = ops/opsworks-cookbooks
-	url = https://github.com/aws/opsworks-cookbooks.git
-	branch = release-chef-11.10
 [submodule "dev/simple-php"]
 	path = dev/simple-php
 	url = https://github.com/amazonwebservices/opsworks-demo-php-simple-app.git
