@@ -1,17 +1,14 @@
 {
-  "name": "db-master",
-  "description": "OpsWorks recipe run-list for the MySQL layer",
-  "default_attributes": {
-  },
-  "run_list": [
-    "recipe[opsworks_initial_setup]",
-    "recipe[mysql::client]",
-    "recipe[dependencies]",
-    "recipe[opsworks_ganglia::client]",
-    "recipe[mysql::server]",
-    "recipe[deploy::mysql]",
-    "recipe[opsworks_ganglia::configure-client]"
-  ],
-  "chef_type": "role",
-  "json_class": "Chef::Role"
+  "opsworks_custom_cookbooks": {
+    "recipes": [
+      "recipe[opsworks_initial_setup]",
+      "recipe[mysql::client]",
+      "recipe[dependencies]",
+      "recipe[opsworks_ganglia::client]",
+      "recipe[mysql::server]",
+      "recipe[deploy::mysql]",
+      "recipe[phpapp::dbsetup]",
+      "recipe[opsworks_ganglia::configure-client]"
+    ]
+  }
 }
