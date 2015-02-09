@@ -7,6 +7,6 @@
 	url = https://github.com/amazonwebservices/opsworks-demo-php-simple-app.git
 	branch = version2
 [submodule "ops/opsworks-example-cookbooks"]
-	path = ops/opsworks-example-cookbooks
+	path = ops/cookbooks
 	url = git@github.com:amazonwebservices/opsworks-example-cookbooks.git
 	branch = master

@@ -23,8 +23,8 @@ Vagrant.configure("2") do |config|
 
   # Provision our machine
   config.vm.provision "chef_solo" do |chef|
-    chef.cookbooks_path = ["ops/opsworks-cookbooks","ops/opsworks-example-cookbooks"]
-    chef.roles_path = "ops/opsworks-roles"
+    chef.cookbooks_path = ["ops/opsworks-cookbooks","ops/cookbooks"]
+    chef.roles_path = "ops/dna"
 
     chef.json = {
       :deploy => {
@@ -82,12 +82,12 @@ Vagrant.configure("2") do |config|
       chef.add_role "php-app"
       chef.add_recipe "phpapp::appsetup"
     end
-    
+
     # Forward port 80 so we can see our work
     layer.vm.network "forwarded_port", guest: 80, host: 8080
     layer.vm.network "private_network", ip: "10.10.10.10"
   end
-  
+
   # Define our database layer
   config.vm.define "db" do |layer|
 
@@ -95,7 +95,7 @@ Vagrant.configure("2") do |config|
       chef.add_role "db-master"
       chef.add_recipe "phpapp::dbsetup"
     end
-    
+
     layer.vm.network "private_network", ip: "10.10.10.20"
   end
 end
