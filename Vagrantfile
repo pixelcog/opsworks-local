@@ -22,7 +22,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", inline: "apt-get update > /dev/null"
 
   # Provision our machine
-  config.vm.provision "chef_solo", id:"chef" do |chef|
+  config.vm.provision "chef_solo" do |chef|
     chef.cookbooks_path = ["ops/opsworks-cookbooks","ops/opsworks-example-cookbooks"]
     chef.roles_path = "ops/opsworks-roles"
 
@@ -78,7 +78,7 @@ Vagrant.configure("2") do |config|
   # Define our app layer
   config.vm.define "app" do |layer|
 
-    layer.vm.provision "chef_solo", id:"chef" do |chef|
+    layer.vm.provision "chef_solo" do |chef|
       chef.add_role "php-app"
       chef.add_recipe "phpapp::appsetup"
     end
@@ -91,7 +91,7 @@ Vagrant.configure("2") do |config|
   # Define our database layer
   config.vm.define "db" do |layer|
 
-    layer.vm.provision "chef_solo", id:"chef" do |chef|
+    layer.vm.provision "chef_solo" do |chef|
       chef.add_role "db-master"
       chef.add_recipe "phpapp::dbsetup"
     end
