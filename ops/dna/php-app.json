@@ -1,19 +1,28 @@
 {
-  "name": "php-app",
-  "description": "OpsWorks recipe run-list for the PHP app layer",
-  "default_attributes": {
+  "deploy": {
+    "simple-php": {
+      "application_type": "php",
+      "document_root": "",
+      "domains": ["simple-php.dev"],
+      "scm": {
+        "scm_type": "git",
+        "repository": "/vagrant/dev/simple-php"
+      },
+      "memcached": {},
+      "database": {}
+    }
   },
-  "run_list": [
-    "recipe[opsworks_initial_setup]",
-    "recipe[mysql::client]",
-    "recipe[dependencies]",
-    "recipe[opsworks_ganglia::client]",
-    "recipe[mod_php5_apache2]",
-    "recipe[deploy::default]",
-    "recipe[deploy::php]",
-    "recipe[opsworks_ganglia::configure-client]",
-    "recipe[php::configure]"
-  ],
-  "chef_type": "role",
-  "json_class": "Chef::Role"
+  "opsworks_custom_cookbooks": {
+    "recipes": [
+      "recipe[opsworks_initial_setup]",
+      "recipe[mysql::client]",
+      "recipe[dependencies]",
+      "recipe[opsworks_ganglia::client]",
+      "recipe[mod_php5_apache2]",
+      "recipe[deploy::default]",
+      "recipe[deploy::php]",
+      "recipe[opsworks_ganglia::configure-client]",
+      "recipe[php::configure]"
+    ]
+  }
 }
