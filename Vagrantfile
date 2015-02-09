@@ -27,7 +27,7 @@ Vagrant.configure("2") do |config|
   # Provision our machine
   config.vm.provision "chef_solo", id:"chef" do |chef|
     chef.cookbooks_path = "ops/opsworks-cookbooks"
-    chef.roles_path = "ops/opsworks-roles"
+    chef.roles_path = "ops/dna"
 
     chef.add_role "php-app"
 
