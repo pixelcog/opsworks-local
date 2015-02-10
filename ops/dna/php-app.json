@@ -3,7 +3,6 @@
     "simple-php": {
       "application_type": "php",
       "document_root": "",
-      "domains": ["simple-php.dev"],
       "scm": {
         "scm_type": "git",
         "repository": "/vagrant/dev/simple-php"
