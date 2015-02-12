@@ -5,7 +5,7 @@
       "document_root": "",
       "scm": {
         "scm_type": "git",
-        "repository": "/vagrant/dev/simple-php"
+        "repository": "dev/simple-php"
       },
       "memcached": {},
       "database": {}
